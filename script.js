@@ -3,7 +3,7 @@ const movieTitle = document.getElementById('movie-title')
 const hintsLists = document.querySelector('ul')
 const movieLetters = document.getElementById('puzzle')
 
-console.log(computedStyle);
+// console.log(computedStyle);
 
 fetch('./data.json')
   .then(res => res.json())
@@ -40,12 +40,27 @@ fetch('./data.json')
       div.appendChild(letter)
       movieLetters.appendChild(div)
 
-      document.addEventListener('keypress', e => {
-        let key = e.code.split('')[3]
-        if (key.toLowerCase() === element.toLowerCase()) {
-          letter.style.visibility = 'visible'
-        }
-      })
+    })
+
+    let check = (k, t) => {
+      if (k.toLowerCase() === t.toLowerCase()) {
+        return true
+      } else {
+        return false
+      }
+    }
+
+    let lettersArray = document.querySelectorAll('.letter span')
+    let titleLetters = titleArray.filter(n => n !== ' ')
+    document.addEventListener('keypress', e => {
+      let key = e.code.split('')[3]
+      titleLetters.forEach((t, index) => {
+        const l = lettersArray[index];
+        check(key, t) ? l.style.visibility = 'visible' : alert('wrong')
+        /* if (key.toLowerCase() !== t.toLowerCase()) {
+          alert('wrong stroke')
+        } */
+      });
 
     })
 
