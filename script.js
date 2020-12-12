@@ -1,8 +1,9 @@
-
+let computedStyle = window.getComputedStyle(document.documentElement)
 const movieTitle = document.getElementById('movie-title')
 const hintsLists = document.querySelector('ul')
-const movieLetters = document.querySelector('.questions-details h3')
+const movieLetters = document.getElementById('puzzle')
 
+console.log(computedStyle);
 
 fetch('./data.json')
   .then(res => res.json())
