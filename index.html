@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,32 +8,44 @@
     <script defer src="script.js"></script>
     <title>Hangman</title>
 </head>
+
 <body>
     <h1>Let's Play the Hangman</h1>
-    
+
     <svg width="478" height="408" viewBox="0 0 478 408" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line x1="64.5003" y1="158.045" x2="62.4875" y2="3.05852" stroke="black" stroke-width="7"/>
-        <line x1="65.5" y1="186" x2="65.5" y2="291" stroke="black" stroke-width="3"/>
-        <line y1="-1.5" x2="43.9922" y2="-1.5" transform="matrix(0.34202 0.939693 -0.964232 0.26506 65 215)" stroke="black" stroke-width="3"/>
-        <line y1="-1.5" x2="43.9922" y2="-1.5" transform="matrix(0.34202 0.939693 -0.964232 0.26506 65 289)" stroke="black" stroke-width="3"/>
-        <line y1="-1.5" x2="43.9922" y2="-1.5" transform="matrix(0.34202 -0.939693 -0.964232 -0.26506 48.2714 329.121)" stroke="black" stroke-width="3"/>
-        <line y1="-1.5" x2="43.9922" y2="-1.5" transform="matrix(0.34202 -0.939693 -0.964232 -0.26506 49 253.339)" stroke="black" stroke-width="3"/>
-        <line x1="0.991592" y1="403.5" x2="477.008" y2="403.5" stroke="black" stroke-width="7"/>
-        <line x1="355.5" y1="407.017" x2="355.5" y2="7.01682" stroke="black" stroke-width="7"/>
-        <line x1="59" y1="3.5" x2="359" y2="3.5" stroke="black" stroke-width="7"/>
-        <path d="M45.4999 195.5C61.3785 195.5 74.4999 183.767 74.4999 169C74.4999 154.233 61.3785 142.5 45.4999 142.5C29.6214 142.5 16.5 154.233 16.5 169C16.5 183.767 29.6214 195.5 45.4999 195.5Z" fill="white" stroke="black" stroke-width="3"/>
-        <path d="M30.3236 170.762L29.8847 164.006L32.4765 162.191L32.7238 171.585L41.6995 175.082L39.1316 176.88L32.729 174.121L33.132 181.081L30.5521 182.888L30.336 173.257L21.5931 169.812L24.161 168.014L30.3236 170.762Z" fill="black"/>
-        <path d="M43.5344 161.512L43.0954 154.756L45.6873 152.941L45.9346 162.335L54.9102 165.832L52.3424 167.63L45.9397 164.871L46.3427 171.831L43.7629 173.637L43.5467 164.007L34.8039 160.562L37.3717 158.764L43.5344 161.512Z" fill="black"/>
-        <line x1="35.468" y1="187.121" x2="54.0832" y2="174.087" stroke="black" stroke-width="3"/>
-        </svg>
-            <div class="questions-details">
-                <h2 id="movie-title"></h2>
-                <p>Hints: </p>
-                <ul>
-                   
-                </ul>
-                <h3>
-                </h3>
-            </div>
+        <line x1="64.5003" y1="158.045" x2="62.4875" y2="3.05852" stroke="black" stroke-width="7" />
+        <line x1="65.5" y1="186" x2="65.5" y2="291" stroke="black" stroke-width="3" />
+        <line y1="-1.5" x2="43.9922" y2="-1.5" transform="matrix(0.34202 0.939693 -0.964232 0.26506 65 215)"
+            stroke="black" stroke-width="3" />
+        <line y1="-1.5" x2="43.9922" y2="-1.5" transform="matrix(0.34202 0.939693 -0.964232 0.26506 65 289)"
+            stroke="black" stroke-width="3" />
+        <line y1="-1.5" x2="43.9922" y2="-1.5" transform="matrix(0.34202 -0.939693 -0.964232 -0.26506 48.2714 329.121)"
+            stroke="black" stroke-width="3" />
+        <line y1="-1.5" x2="43.9922" y2="-1.5" transform="matrix(0.34202 -0.939693 -0.964232 -0.26506 49 253.339)"
+            stroke="black" stroke-width="3" />
+        <line x1="0.991592" y1="403.5" x2="477.008" y2="403.5" stroke="black" stroke-width="7" />
+        <line x1="355.5" y1="407.017" x2="355.5" y2="7.01682" stroke="black" stroke-width="7" />
+        <line x1="59" y1="3.5" x2="359" y2="3.5" stroke="black" stroke-width="7" />
+        <path
+            d="M45.4999 195.5C61.3785 195.5 74.4999 183.767 74.4999 169C74.4999 154.233 61.3785 142.5 45.4999 142.5C29.6214 142.5 16.5 154.233 16.5 169C16.5 183.767 29.6214 195.5 45.4999 195.5Z"
+            fill="white" stroke="black" stroke-width="3" />
+        <path
+            d="M30.3236 170.762L29.8847 164.006L32.4765 162.191L32.7238 171.585L41.6995 175.082L39.1316 176.88L32.729 174.121L33.132 181.081L30.5521 182.888L30.336 173.257L21.5931 169.812L24.161 168.014L30.3236 170.762Z"
+            fill="black" />
+        <path
+            d="M43.5344 161.512L43.0954 154.756L45.6873 152.941L45.9346 162.335L54.9102 165.832L52.3424 167.63L45.9397 164.871L46.3427 171.831L43.7629 173.637L43.5467 164.007L34.8039 160.562L37.3717 158.764L43.5344 161.512Z"
+            fill="black" />
+        <line x1="35.468" y1="187.121" x2="54.0832" y2="174.087" stroke="black" stroke-width="3" />
+    </svg>
+    <div class="questions-details">
+        <h2 id="movie-title"></h2>
+        <p>Hints: </p>
+        <ul>
+
+        </ul>
+        <div id="puzzle">
+        </div>
+    </div>
 </body>
+
 </html>
