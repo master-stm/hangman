@@ -52,33 +52,16 @@ fetch('./data.json')
 
     let lettersArray = document.querySelectorAll('.letter span')
     let titleLetters = titleArray.filter(n => n !== ' ')
-    document.addEventListener('keypress', e => {
-      let key = e.code.split('')[3]
-      titleLetters.forEach((t, index) => {
-        const l = lettersArray[index];
+
+
+    //try adding keypress event to each element in the array
+    titleLetters.forEach((t, index) => {
+      const l = lettersArray[index];
+      document.addEventListener('keypress', e => {
+        let key = e.code.split('')[3]
         check(key, t) ? l.style.visibility = 'visible' : alert('wrong')
-        /* if (key.toLowerCase() !== t.toLowerCase()) {
-          alert('wrong stroke')
-        } */
-      });
+      })
 
-    })
-
+    });
 
   })
-
-/* {
-      "title": "Game Night",
-      "year": "2018",
-      "genres": [
-          "Action",
-          "Comedy",
-          "Crime"
-      ],
-      "storyline": "A group of friends who meet regularly for game nights find themselves trying to solve a murder mystery.",
-      "actors": [
-          "Rachel McAdams",
-          "Jesse Plemons",
-          "Jason Bateman"
-      ]
-  } */
