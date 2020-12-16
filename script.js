@@ -42,26 +42,37 @@ fetch('./data.json')
 
     })
 
-    let check = (k, t) => {
-      if (k.toLowerCase() === t.toLowerCase()) {
-        return true
-      } else {
-        return false
+    // a function to get all the matched indexes in an array and return them in an array
+    let getAllIndexes = (arr, val) => {
+      var indexes = [], i = -1;
+      while ((i = arr.indexOf(val, i + 1)) != -1) {
+        indexes.push(i);
       }
+      return indexes;
     }
 
     let lettersArray = document.querySelectorAll('.letter span')
     let titleLetters = titleArray.filter(n => n !== ' ')
+    let mistake = 1 //counter for gessing tries
+    document.addEventListener('keypress', e => {
 
+      let key = e.key.toLowerCase()
+      correctGueses = getAllIndexes(titleLetters.join('').toLowerCase(), key)
+      // if correctGuesses array length is 0 it means no match found AKA wrong answer
+      if (correctGueses.length === 0) {
+        if (mistake < 5) {
+          console.log(`Mistake #${mistake}`);
+          mistake++
+        } else {
+          console.log('exceeded tries limit');
 
-    //try adding keypress event to each element in the array
-    titleLetters.forEach((t, index) => {
-      const l = lettersArray[index];
-      document.addEventListener('keypress', e => {
-        let key = e.code.split('')[3]
-        check(key, t) ? l.style.visibility = 'visible' : alert('wrong')
-      })
+        }
+      } else {
+        correctGueses.forEach(i => {
+          lettersArray[i].style.visibility = 'visible'
+        })
+      }
+    })
 
-    });
 
   })
