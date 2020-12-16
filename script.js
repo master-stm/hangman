@@ -21,7 +21,7 @@ fetch('./data.json')
     let hint3 = document.createElement('li')
     hint3.innerText = randMovie.actors[Math.floor(Math.random() * randMovie.actors.length)]
     hintsLists.appendChild(hint3)
-
+    
     let titleArray = Array.from(randMovie.title)
 
     titleArray.forEach((element, i) => {
@@ -50,7 +50,8 @@ fetch('./data.json')
       }
       return indexes;
     }
-
+let faces = document.querySelectorAll('.face')
+          
     let lettersArray = document.querySelectorAll('.letter span')
     let titleLetters = titleArray.filter(n => n !== ' ')
     let mistake = 1 //counter for gessing tries
@@ -60,12 +61,18 @@ fetch('./data.json')
       correctGueses = getAllIndexes(titleLetters.join('').toLowerCase(), key)
       // if correctGuesses array length is 0 it means no match found AKA wrong answer
       if (correctGueses.length === 0) {
-        if (mistake < 5) {
-          console.log(`Mistake #${mistake}`);
+        if (mistake < 11) {
+          let animateFigure = document.getElementById(`figure-part-${mistake}`)
+          animateFigure.classList.toggle('hidden')
+          animateFigure.classList.add('wrong-answer')
           mistake++
         } else {
-          console.log('exceeded tries limit');
-
+          faces.forEach(face => {
+            face.classList.toggle('hidden')
+            face.classList.add('wrong-answer-face')
+          })
+          
+          
         }
       } else {
         correctGueses.forEach(i => {

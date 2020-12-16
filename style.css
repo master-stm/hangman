@@ -18,37 +18,43 @@ svg {
 }
 
 /* start of the animation */
-/* svg path {
+
+  .wrong-answer {
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
-    animation: dash 3s linear forwards;
+    animation: strike 3s linear forwards;
   }
   
-  @keyframes dash {
+  .wrong-answer-face {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: face 10s linear forwards;
+  }
+
+  @keyframes strike {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+  @keyframes face {
     to {
       stroke-dashoffset: 0;
     }
   }
   
 
-  svg line {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: dash 3s linear forwards;
-  }
-  
-  @keyframes dash {
-    to {
-      stroke-dashoffset: 0;
-    }
-  } */
+ .hidden{
+   display: none;
+ }
 
 #movie-title {
   word-wrap: break-word;
 }
 #puzzle {
   display: flex;
-  word-wrap: break-word;
+  overflow-wrap: break-word;  
+  word-wrap: break-word; 
+  word-break: break-word;
 }
 li {
   word-wrap: break-word;
