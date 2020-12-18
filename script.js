@@ -9,7 +9,19 @@ fetch('./data.json')
   .then(res => res.json())
   .then(data => {
 
-    let randNum = Math.floor(Math.random() * data.length)
+    function is_touch_enabled() { 
+      return ( 'ontouchstart' in window ) ||  
+             ( navigator.maxTouchPoints > 0 ) || 
+             ( navigator.msMaxTouchPoints > 0 ); 
+  } 
+
+  if( is_touch_enabled() ) { 
+    document.getElementById('main').style.display = 'none';
+    document.querySelector('.touch-screen-message').style.display = 'block'
+} 
+else { 
+  document.getElementById('main').style.display = 'flex';
+   let randNum = Math.floor(Math.random() * data.length)
     let randMovie = data[randNum]
     movieTitle.innerText = randMovie.title
     let hint1 = document.createElement('li')
@@ -80,6 +92,9 @@ let faces = document.querySelectorAll('.face')
         })
       }
     })
+}
+
+    
 
 
   })

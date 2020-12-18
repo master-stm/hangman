@@ -14,8 +14,13 @@ svg {
   right: 10rem;
   border: 5px solid khaki;
   padding: 25px 100px;
-  margin-right: 10px;
 }
+
+#main{
+  display: flex;
+  justify-content: space-evenly;
+}
+
 
 /* start of the animation */
 
@@ -48,7 +53,7 @@ svg {
  }
 
 #movie-title {
-  word-wrap: break-word;
+  display: none;
 }
 #puzzle {
   display: flex;
@@ -75,4 +80,22 @@ li {
   border-bottom: 4px solid black;
   margin: 0 0.1em;
   width: fit-content;
+}
+
+.touch-screen-message{
+  margin: auto;
+  text-align: center;
+  display: none;
+}
+
+.touch-screen-message h2{
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  margin: auto;
+  padding: .5em 1em;
+}
+
+.touch-screen-message img{
+  width: 80%;
+  border-radius: 50%;
+  
 }
